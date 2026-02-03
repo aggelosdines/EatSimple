@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Διαιτολόγος Θεσσαλονίκη | Ραντεβού Δια Ζώσης & Online</title>
+  <meta name="description" content="Κλείστε ραντεβού με διαιτολόγο στη Θεσσαλονίκη ή online. Εξατομικευμένη διατροφή, υποστήριξη και παρακολούθηση. Τηλέφωνο & φόρμα." />
+
+  <style>
+    :root {
+      --black:#111;
+      --muted:rgba(0,0,0,.72);
+      --line:rgba(0,0,0,.12);
+      --bg:#fafafa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color:#111;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1020px; margin:0 auto; padding:18px; }
+    .top {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+    }
+    .brand { font-weight:900; }
+    .tag { font-size:13px; color:var(--muted); }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .btnPrimary {
+      background:var(--black);
+      color:#fff;
+      border-color:var(--black);
+    }
+
+    .grid { display:grid; gap:16px; }
+    .grid2 { grid-template-columns:1.2fr .8fr; }
+
+    .card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+    }
+
+    h1 { margin:0 0 10px; font-size:32px; }
+    h2 { margin:16px 0 10px; font-size:20px; }
+    p { margin:0 0 10px; color:var(--muted); }
+
+    ul { margin:10px 0 0 18px; color:var(--muted); }
+    li { margin:6px 0; }
+
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .pill {
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:13px;
+      background:#fff;
+    }
+
+    label { display:block; font-weight:800; margin:10px 0 6px; }
+    input, textarea, select {
+      width:100%;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.18);
+      font-size:14px;
+    }
+    textarea { min-height:110px; resize:vertical; }
+
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+    .fine { font-size:12px; color:var(--muted); margin-top:8px; }
+
+    .sticky {
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      display:none;
+      z-index:9999;
+    }
+    .sticky a {
+      width:100%;
+      background:var(--black);
+      color:#fff;
+      padding:14px 16px;
+      border-radius:16px;
+      font-weight:900;
+      text-decoration:none;
+      text-align:center;
+      display:block;
+    }
+
+    @media (max-width:880px){
+      .grid2 { grid-template-columns:1fr; }
+      h1 { font-size:28px; }
+      .row { grid-template-columns:1fr; }
+      .sticky { display:block; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="brand">EatSimple</div>
+      <div class="tag">Διαιτολόγος • Θεσσαλονίκη (δια ζώσης) • Online παντού</div>
+    </div>
+    <a class="btn btnPrimary" href="2311201138">📞 Κλήση</a>
+  </div>
+
+  <div class="grid grid2">
+    <div class="card">
+      <h1>Κλείστε ραντεβού με διαιτολόγο</h1>
+      <p>
+        Εξατομικευμένη διατροφή για απώλεια βάρους, κλινική υποστήριξη
+        και βελτίωση συνηθειών. Δια ζώσης στη Θεσσαλονίκη ή online
+        από όπου κι αν βρίσκεστε.
+      </p>
+
+      <div class="pills">
+        <div class="pill">📍 Δια ζώσης: Θεσσαλονίκη</div>
+        <div class="pill">💻 Online συνεδρίες</div>
+        <div class="pill">📞 Τηλέφωνο & φόρμα</div>
+      </div>
+
+      <h2>Στοιχεία</h2>
+      <p><strong>Τηλέφωνο:</strong> <a href="2311201138">REPLACE_PHONE_1</a></p>
+      <p><strong>Διεύθυνση:</strong> Παύλου Μελά 35</p>
+      <p><strong>Ωράριο:</strong> 09:00-21:00 </p>
+    </div>
+
+    <div class="card" id="form">
+      <h2>Ζητήστε ραντεβού</h2>
+
+      <form id="leadForm">
+        <div class="row">
+          <div>
+            <label>Ονοματεπώνυμο</label>
+            <input name="name" required />
+          </div>
+          <div>
+            <label>Τηλέφωνο</label>
+            <input name="phone" type="tel" required />
+          </div>
+        </div>
+
+        <label>Email</label>
+        <input name="email" type="email" required />
+
+        <label>Τύπος συνεδρίας</label>
+        <select name="mode" required>
+          <option value="">Επιλέξτε…</option>
+          <option>Δια ζώσης (Θεσσαλονίκη)</option>
+          <option>Online</option>
+        </select>
+
+        <label>Μήνυμα (προαιρετικό)</label>
+        <textarea name="message"></textarea>
+
+        <button class="btn btnPrimary" type="submit" style="margin-top:12px;">
+          Αποστολή
+        </button>
+
+        <div class="fine" id="note">
+          Θα ανοίξει το email σας για αποστολή.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <p class="fine" style="text-align:center;margin:16px 0;">
+    © <span id="y"></span> REPLACE_BUSINESS_NAME
+  </p>
+</div>
+
+<div class="sticky">
+  <a href="2311201138">📞 Κλήση για ραντεβού</a>
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+  const EMAIL_TO = "clin.diet@gmail.com";
+
+  document.getElementById("leadForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(e.target).entries());
+    const subject = encodeURIComponent("Νέο αίτημα ραντεβού");
+    const body = encodeURIComponent(
+      "Όνομα: " + d.name + "\n" +
+      "Τηλέφωνο: " + d.phone + "\n" +
+      "Email: " + d.email + "\n" +
+      "Συνεδρία: " + d.mode + "\n\n" +
+      d.message
+    );
+    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
