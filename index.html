@@ -65,9 +65,6 @@
     h2 { margin:16px 0 10px; font-size:20px; }
     p { margin:0 0 10px; color:var(--muted); }
 
-    ul { margin:10px 0 0 18px; color:var(--muted); }
-    li { margin:6px 0; }
-
     .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
     .pill {
       border:1px solid var(--line);
@@ -76,6 +73,9 @@
       font-size:13px;
       background:#fff;
     }
+    /* clickable pills */
+    .pillLink { text-decoration:none; cursor:pointer; display:inline-flex; align-items:center; }
+    .pillLink:hover { border-color: rgba(0,0,0,.25); }
 
     label { display:block; font-weight:800; margin:10px 0 6px; }
     input, textarea, select {
@@ -86,7 +86,6 @@
       font-size:14px;
     }
     textarea { min-height:110px; resize:vertical; }
-
     .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 
     .fine { font-size:12px; color:var(--muted); margin-top:8px; }
@@ -140,16 +139,18 @@
         από όπου κι αν βρίσκεστε.
       </p>
 
+      <!-- Clickable pills -->
       <div class="pills">
-        <div class="pill">📍 Δια ζώσης: Θεσσαλονίκη</div>
-        <div class="pill">💻 Online συνεδρίες</div>
-        <div class="pill">📞 Τηλέφωνο & φόρμα</div>
+        <a class="pill pillLink" href="#info">📍 Δια ζώσης: Θεσσαλονίκη</a>
+        <a class="pill pillLink" href="#form" id="goOnline">💻 Online συνεδρίες</a>
+        <a class="pill pillLink" href="#form">📞 Τηλέφωνο &amp; φόρμα</a>
       </div>
 
-      <h2>Στοιχεία</h2>
+      <h2 id="info">Στοιχεία</h2>
       <p><strong>Τηλέφωνο:</strong> <a href="tel:+302311201138">2311201138</a></p>
       <p><strong>Διεύθυνση:</strong> Παύλου Μελά 35</p>
-      <p><strong>Ωράριο:</strong> 09:00-21:00 </p>
+      <p><strong>Ωράριο:</strong> 09:00-21:00</p>
+      <p class="fine">* Online συνεδρίες διαθέσιμες πανελλαδικά.</p>
     </div>
 
     <div class="card" id="form">
@@ -173,8 +174,8 @@
         <label>Τύπος συνεδρίας</label>
         <select name="mode" required>
           <option value="">Επιλέξτε…</option>
-          <option>Δια ζώσης (Θεσσαλονίκη)</option>
-          <option>Online</option>
+          <option value="Δια ζώσης (Θεσσαλονίκη)">Δια ζώσης (Θεσσαλονίκη)</option>
+          <option value="Online">Online</option>
         </select>
 
         <label>Μήνυμα (προαιρετικό)</label>
@@ -202,18 +203,25 @@
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
-  const EMAIL_TO = "clin.diet@gmail.com";
 
+  // όταν πατάει "Online συνεδρίες", να επιλέγει Online στη φόρμα
+  document.getElementById("goOnline")?.addEventListener("click", function(){
+    const sel = document.querySelector('select[name="mode"]');
+    if (sel) sel.value = "Online";
+  });
+
+  // φόρμα με mailto
+  const EMAIL_TO = "clin.diet@gmail.com";
   document.getElementById("leadForm").addEventListener("submit", function(e){
     e.preventDefault();
     const d = Object.fromEntries(new FormData(e.target).entries());
     const subject = encodeURIComponent("Νέο αίτημα ραντεβού");
     const body = encodeURIComponent(
-      "Όνομα: " + d.name + "\n" +
-      "Τηλέφωνο: " + d.phone + "\n" +
-      "Email: " + d.email + "\n" +
-      "Συνεδρία: " + d.mode + "\n\n" +
-      d.message
+      "Όνομα: " + (d.name || "") + "\n" +
+      "Τηλέφωνο: " + (d.phone || "") + "\n" +
+      "Email: " + (d.email || "") + "\n" +
+      "Συνεδρία: " + (d.mode || "") + "\n\n" +
+      (d.message || "")
     );
     window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
   });
