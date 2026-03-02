@@ -208,7 +208,45 @@ button:hover, .btn:hover, .btnPrimary:hover{
 .tag, .fine, small{
   color: var(--clinic-muted) !important;
 }
-  </style>
+    /* ---- Medical Blue Button ---- */
+
+:root{
+  --medical-blue:#2563eb;
+  --medical-blue-dark:#1e4ed8;
+}
+
+.btnPrimary,
+button,
+.btn{
+  background: linear-gradient(135deg, var(--medical-blue), var(--medical-blue-dark)) !important;
+  color:#ffffff !important;
+  border:1px solid rgba(37,99,235,.6) !important;
+  border-radius:14px !important;
+  font-weight:600;
+  letter-spacing:.3px;
+  box-shadow:
+    0 10px 25px rgba(37,99,235,.25),
+    0 4px 10px rgba(0,0,0,.05) !important;
+  transition: all .25s ease;
+}
+
+.btnPrimary:hover,
+button:hover,
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(37,99,235,.30),
+    0 6px 14px rgba(0,0,0,.08) !important;
+}
+
+.btnPrimary:active,
+button:active,
+.btn:active{
+  transform: translateY(0);
+  box-shadow:
+    0 6px 15px rgba(37,99,235,.25) !important;
+}
+ </style>
 </head>
 
 <body>
