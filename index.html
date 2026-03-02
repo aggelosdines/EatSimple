@@ -129,22 +129,24 @@
   margin-top: 70px;
 }
 
+/* ---- Refined luxury badge ---- */
+
 .card-badge{
-  position: absolute;
-  top: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff;
-  padding: 8px 16px;
-  border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  z-index: 10;
+  position:absolute;
+  top:-55px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ffffff;
+  border-radius:50%;
+  padding:10px;
+  box-shadow:
+    0 12px 30px rgba(15,23,42,.08);
 }
 
 .card-badge img{
-  width: 90px;
-  height: auto;
-  display: block;
+  width:85px;
+  height:auto;
+  opacity:.92;
 }
 /* ---- Luxury Private Clinic Button ---- */
 
@@ -278,6 +280,41 @@ button:hover,
   width:16px;
   height:16px;
   opacity:.9;
+}
+    /* ---- Luxury subtle background ---- */
+
+body{
+  background:
+    radial-gradient(circle at 20% 10%, rgba(28,47,69,.06), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(28,47,69,.06), transparent 40%),
+    #f8fafc;
+}
+    /* ---- Premium headings ---- */
+
+h1{
+  font-size:34px;
+  font-weight:600;
+  letter-spacing:-0.5px;
+  color:#0f172a;
+}
+
+h2{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:-0.3px;
+  color:#0f172a;
+  margin-top:30px;
+}
+
+/* subtle medical underline */
+h2::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:2px;
+  margin-top:8px;
+  background:rgba(28,47,69,.25);
+  border-radius:2px;
 }
  </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
