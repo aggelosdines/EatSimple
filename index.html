@@ -138,6 +138,76 @@
   height: auto;
   display: block;
 }
+    /* ---- Clinical / medical look ---- */
+:root{
+  --clinic-green:#2e5e3e;
+  --clinic-text:#1f2937;
+  --clinic-muted:#6b7280;
+  --clinic-line:rgba(31,41,55,.12);
+  --clinic-bg:#fbfbfc;
+}
+
+body{
+  background: var(--clinic-bg);
+  color: var(--clinic-text);
+}
+
+/* Cards πιο “soft” */
+.card{
+  border: 1px solid var(--clinic-line);
+  box-shadow: 0 10px 30px rgba(15,23,42,.06); /* πιο ήπια σκιά */
+  border-radius: 18px;
+}
+
+/* Τίτλοι πιο “clinic” */
+h1, h2{
+  letter-spacing: -0.2px;
+}
+h1{ color: #111827; }
+h2{ color: #111827; }
+
+/* Pills πιο ήρεμα */
+.pill{
+  background: #ffffff;
+  border: 1px solid var(--clinic-line);
+  box-shadow: none;
+  color: var(--clinic-text);
+}
+.pill:hover{
+  border-color: rgba(46,94,62,.35);
+}
+
+/* Inputs πιο “ιατρικά” */
+input, select, textarea{
+  border: 1px solid var(--clinic-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(46,94,62,.45) !important;
+  box-shadow: 0 0 0 4px rgba(46,94,62,.12) !important; /* απαλό focus */
+}
+
+/* Button αποστολής: από μαύρο -> κλινικό πράσινο */
+button, .btn, .btnPrimary{
+  background: var(--clinic-green) !important;
+  color: #fff !important;
+  border: 1px solid rgba(46,94,62,.65) !important;
+  box-shadow: 0 10px 20px rgba(46,94,62,.18) !important;
+  border-radius: 12px !important;
+}
+
+button:hover, .btn:hover, .btnPrimary:hover{
+  filter: brightness(0.95);
+}
+
+/* Μικρά κείμενα πιο διακριτικά */
+.tag, .fine, small{
+  color: var(--clinic-muted) !important;
+}
   </style>
 </head>
 
