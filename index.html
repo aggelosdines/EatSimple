@@ -384,12 +384,31 @@ h2::after{
         <label>Email</label>
         <input name="email" type="email" required />
 
-        <label>Τύπος συνεδρίας</label>
-        <select name="mode" required>
-          <option value="">Επιλέξτε…</option>
-          <option value="Δια ζώσης (Θεσσαλονίκη)">Δια ζώσης (Θεσσαλονίκη)</option>
-          <option value="Online">Online</option>
-        </select>
+<label>Τύπος συνεδρίας</label>
+
+<div class="session-options">
+
+  <label class="session-card">
+    <input type="radio" name="mode" value="Online" required>
+    <div class="card-content">
+      <span class="title">Online συνεδρία</span>
+      <span class="price">25€</span>
+    </div>
+  </label>
+
+  <label class="session-card">
+    <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)">
+    <div class="card-content">
+      <span class="title">Δια ζώσης</span>
+      <span class="price">25€</span>
+    </div>
+  </label>
+
+</div>
+
+<p class="note">
+* Η πληρωμή γίνεται μετά την επιβεβαίωση του ραντεβού
+</p>
 
         <label>Μήνυμα (προαιρετικό)</label>
         <textarea name="message"></textarea>
