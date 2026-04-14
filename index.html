@@ -346,53 +346,7 @@ h2::after{
   background: #e8f5e9;
 }
 
-.card-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title {
-  font-weight: 600;
-}
-
-.price {
-  font-weight: bold;
-  color: #2e7d32;
-}
-
-.note {
-  font-size: 12px;
-  margin-top: 8px;
-  color: #777;
-}
-    .subprice {
-  font-size: 13px;
-  color: #2e7d32;
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.subprice-alt {
-  font-size: 12px;
-  color: #777;
-}
-    .session-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.price-main {
-  font-weight: 600;
-  color: #2e7d32;
-}
-
-.price-alt {
-  font-size: 12px;
-  color: #777;
-}
- </style>
+</style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -467,22 +421,16 @@ h2::after{
   <label class="session-card">
     <input type="radio" name="mode" value="Online" required>
     <div class="card-content">
-      <div class="session-text">
-        <span class="title">Online συνεδρία</span>
-        <span class="price-main">25€ / επίσκεψη</span>
-        <span class="price-alt">ή 80€ / 4 επισκέψεις</span>
-      </div>
+      <span class="title">Online συνεδρία</span>
+      <span class="price">25€</span>
     </div>
   </label>
 
   <label class="session-card">
     <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)">
     <div class="card-content">
-      <div class="session-text">
-        <span class="title">Δια ζώσης</span>
-        <span class="price-main">25€ / επίσκεψη</span>
-        <span class="price-alt">ή 80€ / 4 επισκέψεις</span>
-      </div>
+      <span class="title">Δια ζώσης</span>
+      <span class="price">25€</span>
     </div>
   </label>
 
@@ -490,7 +438,9 @@ h2::after{
 
 <p class="note">
 * Η πληρωμή γίνεται μετά την επιβεβαίωση του ραντεβού
-</p>        <label>Μήνυμα (προαιρετικό)</label>
+</p>      
+        
+        <label>Μήνυμα (προαιρετικό)</label>
         <textarea name="message"></textarea>
 
         <button class="btn btnPrimary" type="submit" style="margin-top:12px;">
