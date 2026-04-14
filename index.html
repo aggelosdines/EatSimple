@@ -346,7 +346,27 @@ h2::after{
   background: #e8f5e9;
 }
 
-</style>
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.price {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #777;
+}
+ </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -419,18 +439,18 @@ h2::after{
 <div class="session-options">
 
   <label class="session-card">
-    <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)">
-    <div class="card-content">
-      <span class="title">Δια ζώσης</span>
-      <span class="price">25€</span>
-    </div>
-  </label>
-  
-  <label class="session-card">
     <input type="radio" name="mode" value="Online" required>
     <div class="card-content">
       <span class="title">Online συνεδρία</span>
-      <span class="price">25€</span>
+      <span class="price">25€ ή 80€ οι 4 επισκέψεις</span>
+    </div>
+  </label>
+
+  <label class="session-card">
+    <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)">
+    <div class="card-content">
+      <span class="title">Δια ζώσης</span>
+      <span class="price">25€ ή 80€ οι 4 επισκέψεις</span>
     </div>
   </label>
 
@@ -438,8 +458,8 @@ h2::after{
 
 <p class="note">
 * Η πληρωμή γίνεται μετά την επιβεβαίωση του ραντεβού
-</p>      
-        
+</p>
+
         <label>Μήνυμα (προαιρετικό)</label>
         <textarea name="message"></textarea>
 
