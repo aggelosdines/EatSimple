@@ -316,6 +316,56 @@ h2::after{
   background:rgba(28,47,69,.25);
   border-radius:2px;
 }
+    .session-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.session-card {
+  flex: 1;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.session-card:hover {
+  border-color: #2e7d32;
+  background: #f3f9f3;
+}
+
+.session-card input {
+  display: none;
+}
+
+.session-card input:checked + .card-content {
+  border: 2px solid #2e7d32;
+  border-radius: 10px;
+  background: #e8f5e9;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.price {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #777;
+}
  </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
