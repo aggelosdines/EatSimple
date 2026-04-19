@@ -441,61 +441,61 @@ h2::after{
 </div>
       <h2>Ζητήστε ραντεβού</h2>
 
-      <form id="leadForm">
-        <div class="row">
-          <div>
-            <label>Ονοματεπώνυμο</label>
-            <input name="name" required />
-          </div>
-          <div>
-            <label>Τηλέφωνο</label>
-            <input name="phone" type="tel" required />
-          </div>
-        </div>
+<form id="leadForm" action="https://formspree.io/f/xovwabcd" method="POST">
+  <div class="row">
+    <div>
+      <label>Ονοματεπώνυμο</label>
+      <input name="name" required />
+    </div>
+    <div>
+      <label>Τηλέφωνο</label>
+      <input name="phone" type="tel" required />
+    </div>
+  </div>
 
-        <label>Email</label>
-        <input name="email" type="email" required />
+  <label>Email</label>
+  <input name="email" type="email" required />
 
-<label>Τύπος συνεδρίας</label>
+  <label>Τύπος συνεδρίας</label>
 
-<div class="session-options">
+  <div class="session-options">
+    <label class="session-card">
+      <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)" required>
+      <div class="card-content">
+        <span class="title">Δια ζώσης</span>
+        <span class="price">25€</span>
+      </div>
+    </label>
 
     <label class="session-card">
-    <input type="radio" name="mode" value="Δια ζώσης (Θεσσαλονίκη)">
-    <div class="card-content">
-      <span class="title">Δια ζώσης</span>
-      <span class="price">25€</span>
-    </div>
-  </label>
+      <input type="radio" name="mode" value="Online" required>
+      <div class="card-content">
+        <span class="title">Online</span>
+        <span class="price">25€</span>
+      </div>
+    </label>
+  </div>
 
-  <label class="session-card">
-    <input type="radio" name="mode" value="Online" required>
-    <div class="card-content">
-      <span class="title">Online</span>
-      <span class="price">25€</span>
-    </div>
-  </label>
-  
-</div>
+  <p class="note">*Θα επικοινωνήσουμε μαζί σας άμεσα</p>
+  <p class="note">* Η πληρωμή γίνεται μετά την επιβεβαίωση του ραντεβού</p>
+  <p class="note">
+    <a href="https://www.eatsimple.gr" target="_blank">Δες το site →</a>
+  </p>
 
-<p class="note">*Θα επικοινωνήσουμε μαζί σας άμεσα</p>
-<p class="note">* Η πληρωμή γίνεται μετά την επιβεβαίωση του ραντεβού</p>
-<p class="note">
-   
-  <a href="https://www.eatsimple.gr" target="_blank">Δες το site →</a>
-</p>
+ <label>Μήνυμα (προαιρετικό)</label>
+<textarea name="message"></textarea>
 
-        <label>Μήνυμα (προαιρετικό)</label>
-        <textarea name="message"></textarea>
+<input type="hidden" name="_subject" value="Νέο αίτημα ραντεβού από EatSimple">
+<input type="hidden" name="_language" value="el">
 
-        <button class="btn btnPrimary" type="submit" style="margin-top:12px;">
-          Αποστολή
-        </button>
+<button class="btn btnPrimary" type="submit" style="margin-top:12px;">
+  Αποστολή
+</button>
 
-        <div class="fine" id="note">
-          Θα ανοίξει το email σας για αποστολή.
-        </div>
-      </form>
+  <div class="fine" id="note">
+    Με την αποστολή θα λάβουμε το αίτημά σας άμεσα.
+  </div>
+</form>
     </div>
   </div>
 
@@ -511,28 +511,10 @@ h2::after{
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // όταν πατάει "Online συνεδρίες", να επιλέγει Online στη φόρμα
-  document.getElementById("goOnline")?.addEventListener("click", function(){
-    const sel = document.querySelector('select[name="mode"]');
-    if (sel) sel.value = "Online";
-  });
-
-  // φόρμα με mailto
-  const EMAIL_TO = "clin.diet@gmail.com";
-  document.getElementById("leadForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const d = Object.fromEntries(new FormData(e.target).entries());
-    const subject = encodeURIComponent("Νέο αίτημα ραντεβού");
-    const body = encodeURIComponent(
-      "Όνομα: " + (d.name || "") + "\n" +
-      "Τηλέφωνο: " + (d.phone || "") + "\n" +
-      "Email: " + (d.email || "") + "\n" +
-      "Συνεδρία: " + (d.mode || "") + "\n\n" +
-      (d.message || "")
-    );
-    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+  document.getElementById("goOnline")?.addEventListener("click", function () {
+    const onlineOption = document.querySelector('input[name="mode"][value="Online"]');
+    if (onlineOption) onlineOption.checked = true;
   });
 </script>
-
 </body>
 </html>
