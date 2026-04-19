@@ -119,13 +119,23 @@
       opacity: .92;
     }
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: 34px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #0f172a;
-    }
+h1{
+  margin: 0 0 8px;
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #0f172a;
+  max-width: 12ch;
+}
+
+@media (max-width: 880px){
+  h1{
+    font-size: 32px;
+    line-height: 1.18;
+    max-width: 100%;
+  }
+}
 
     h2 {
       margin: 30px 0 10px;
@@ -316,6 +326,12 @@
       .row { grid-template-columns: 1fr; }
       .sticky { display: block; }
     }
+    .hero-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 8px 0 18px;
+}
   </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -343,7 +359,8 @@
           <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgkQ-dsI1HaF0QYd-4CUtBeilUvxsDd9zuVQ9L4V-TBvjfKFNRnwXzCJJeImNymjhGTqf0XUweCKZ8FZ1fRBXkV30Z0Ffx8_mRqDueU0L6VWO1u1NyiVyGbyF0YrhvyMVZQb6Gf2H_e5crtFVWWIcYdOBIK82ZMLZXgFANfL2poXRpuF9-QOrv9AvO4rSk=s177" alt="EatSimple">
         </div>
 
-        <h1>Απώλεια βάρους με εξατομικευμένη διατροφή (δια ζώσης & online)</h1>
+        <h1>Εξατομικευμένη διατροφή για απώλεια βάρους</h1>
+        <p class="hero-subtitle">Δια ζώσης στη Θεσσαλονίκη και online σε όλη την Ελλάδα.</p>
         <p>
           ✔ Χωρίς αυστηρές δίαιτες
           ✔ Προσαρμοσμένο στην καθημερινότητά σου
