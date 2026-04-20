@@ -445,7 +445,6 @@ h1{
           <textarea name="message"></textarea>
 
           <input type="hidden" name="_subject" value="Νέο αίτημα ραντεβού από EatSimple">
-          <input type="hidden" name="_next" value="https://aggelosdines.github.io/EatSimple/thanks.html">
           <input type="hidden" name="_language" value="el">
 
           <button class="btn" type="submit" style="margin-top:12px;">
@@ -468,39 +467,72 @@ h1{
     <a href="tel:+302311201138">📞 Κλήση για ραντεβού</a>
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
 
-    document.getElementById("goOnline")?.addEventListener("click", function () {
-      const onlineOption = document.querySelector('input[name="mode"][value="Online"]');
-      if (onlineOption) {
-        onlineOption.checked = true;
-        document.getElementById("sessionOptions")?.classList.remove("error");
-        document.getElementById("modeError")?.classList.remove("show");
-      }
+  const goOnlineBtn = document.getElementById("goOnline");
+  const leadForm = document.getElementById("leadForm");
+  const modeError = document.getElementById("modeError");
+  const sessionOptions = document.getElementById("sessionOptions");
+  const submitBtn = leadForm?.querySelector('button[type="submit"]');
+
+  goOnlineBtn?.addEventListener("click", function () {
+    const onlineOption = document.querySelector('input[name="mode"][value="Online"]');
+    if (onlineOption) onlineOption.checked = true;
+
+    sessionOptions?.classList.remove("error");
+    modeError?.classList.remove("show");
+  });
+
+  document.querySelectorAll('input[name="mode"]').forEach((radio) => {
+    radio.addEventListener("change", function () {
+      sessionOptions?.classList.remove("error");
+      modeError?.classList.remove("show");
     });
+  });
 
-    const form = document.getElementById("leadForm");
-    const modeInputs = document.querySelectorAll('input[name="mode"]');
-    const sessionOptions = document.getElementById("sessionOptions");
-    const modeError = document.getElementById("modeError");
+  leadForm?.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-    form.addEventListener("submit", function (e) {
-      const selected = document.querySelector('input[name="mode"]:checked');
+    const selectedMode = document.querySelector('input[name="mode"]:checked');
 
-      if (!selected) {
-        e.preventDefault();
-        sessionOptions.classList.add("error");
-        modeError.classList.add("show");
-      }
-    });
+    if (!selectedMode) {
+      sessionOptions?.classList.add("error");
+      modeError?.classList.add("show");
+      sessionOptions?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
 
-    modeInputs.forEach((input) => {
-      input.addEventListener("change", function () {
-        sessionOptions.classList.remove("error");
-        modeError.classList.remove("show");
+    const formData = new FormData(leadForm);
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Αποστολή...";
+    }
+
+    try {
+      const response = await fetch(leadForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
       });
-    });
-  </script>
+
+      if (response.ok) {
+        window.location.href = "https://aggelosdines.github.io/EatSimple/thanks.html";
+      } else {
+        alert("Υπήρξε πρόβλημα στην αποστολή. Παρακαλώ δοκιμάστε ξανά.");
+      }
+    } catch (error) {
+      alert("Υπήρξε πρόβλημα σύνδεσης. Παρακαλώ δοκιμάστε ξανά.");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Αποστολή";
+      }
+    }
+  });
+</script>
 </body>
 </html>
